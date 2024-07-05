@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.toggle("open-menu", showMenu);
   });
 
+  //Carousel
   let cardIndex = 1;
   const cards = document.getElementsByClassName("testimonials__item");
   const dots = document.getElementsByClassName("dot");
 
-  const showCards = (n) => {
+  window.showCards = (n) => {
+    // Объявляем глобально
     cardIndex = (n > cards.length ? 1 : n < 1 ? cards.length : n) - 1;
     Array.from(cards).forEach((card, i) => {
       card.classList.toggle("testimonials__item-active", i === cardIndex);
@@ -24,4 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   showCards(cardIndex);
+
+  Array.from(dots).forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showCards(index + 1);
+    });
+  });
 });
