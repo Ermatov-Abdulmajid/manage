@@ -244,6 +244,7 @@ select:-webkit-autofill:focus {
   display: flex;
   margin-top: 50px;
   overflow-x: scroll;
+  scrollbar-width: none;
 }
 
 .testimonials__item {
